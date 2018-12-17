@@ -6,4 +6,5 @@ RUN apk update && \
     go install github.com/ncw/rclone
 
 FROM alpine:latest
+RUN apk add --no-cache ca-certificates
 COPY --from=build /go/bin/rclone /usr/local/bin/rclone
